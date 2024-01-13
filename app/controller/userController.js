@@ -13,4 +13,12 @@ export const userRegister = async (req, res) => {
   const exisitingUser = await userModel.findOne({ email });
   if (exisitingUser)
     return res.status(400).json({ message: "User already exists" });
+  // create new user
+  const user = new userModel({
+    name,
+    email,
+    password,
+    address,
+    role,
+  });
 };
