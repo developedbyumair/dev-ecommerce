@@ -22,4 +22,5 @@ export const userRegister = async (req, res) => {
     role,
   });
   user.save();
+  res.status(200).json({ message: "User created successfully" });
 };
