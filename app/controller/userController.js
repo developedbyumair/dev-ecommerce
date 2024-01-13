@@ -1,3 +1,5 @@
+import userModel from "../models/userModal.js";
+
 export const userRegister = async (req, res) => {
   const { name, email, password, address, role } = req.body;
 
@@ -7,4 +9,8 @@ export const userRegister = async (req, res) => {
   if (!password)
     return res.status(400).json({ message: "Password is required" });
   if (!address) return res.status(400).json({ message: "Address is required" });
+  // existing user
+  const exisitingUser = await userModel.findOne({ email });
+  if (exisitingUser)
+    return res.status(400).json({ message: "User already exists" });
 };
