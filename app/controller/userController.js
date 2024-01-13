@@ -1,6 +1,7 @@
 import userModel from "../models/userModal.js";
 
 export const userRegister = async (req, res) => {
+  console.log("req.body", req.body);
   const { name, email, password, address, role } = req.body;
 
   // validation

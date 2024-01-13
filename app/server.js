@@ -11,12 +11,15 @@ dotenv.config();
 // database connection
 connectDB();
 
-app.get("/", (req, res) => {
+// routes
+app.use("/api/v1/userAuth", (req, res) => {
+  console.log("req.body", req);
   res.send("Hello World!");
 });
 
-// routes
-app.use("/api/v1/userAuth", userRouter);
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
