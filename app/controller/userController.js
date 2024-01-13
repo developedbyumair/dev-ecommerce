@@ -21,4 +21,5 @@ export const userRegister = async (req, res) => {
     address,
     role,
   });
+  user.save();
 };
